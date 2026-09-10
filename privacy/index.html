@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Nous has no accounts and collects no personal data. This is exactly what the app sends, what the server keeps, and for how long.">
+<link rel="canonical" href="https://alpozcan.github.io/nous-site/privacy/">
+<link rel="stylesheet" href="../style.css">
+<title>Privacy Policy — Nous</title>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="site-nav" aria-label="Primary">
+  <div>
+    <a class="wordmark" href="../">Nous</a>
+    <ul>
+      <li><a href="../privacy/" aria-current="page">Privacy</a></li>
+      <li><a href="../terms/">Terms</a></li>
+      <li><a href="../support/">Support</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+  <h1>Nous — Privacy Policy</h1>
+  <p class="lede">Nous has no accounts and collects no personal data. This is exactly what the app sends, what the server keeps, and for how long.</p>
+  <p class="revised">Last updated 2026-09-10</p>
+  <div class="note">
+  <p><strong>The short version.</strong> Nous has no accounts. There is nothing to
+  sign up for, no email address to give, and no password. The app does not ask who
+  you are and the server has no way of finding out. It keeps one anonymous
+  identifier per installed copy of the app so that it can tell a real copy of the
+  app from a script, and — only if you switch notifications on — the settings a
+  notification needs. It contains no analytics, no advertising, and no third-party
+  trackers, and nothing about you is sold or shared for advertising.</p>
+  </div>
+
+  <h2>Who is responsible</h2>
+  <p>Nous is made by Alp Özcan, an individual developer. For anything in this
+  policy, including a request to delete data, write to <a href="mailto:hi@alp.me">hi@alp.me</a>. Mail is usually
+  answered within a few days.</p>
+
+  <h2>There is no account</h2>
+  <p>The app authenticates itself, not you. It uses <strong>Apple App
+  Attest</strong>: on first launch your device generates a cryptographic key
+  inside its Secure Enclave, and Apple vouches that the key belongs to a genuine,
+  unmodified copy of this app on genuine Apple hardware. Every later request
+  carries a short signature made with that key.</p>
+  <p>This proves that a request came from the app. It proves nothing about you,
+  and it cannot: the key is created on the device, the private half never leaves
+  it, and no name, email address, phone number or Apple ID is involved at any
+  point.</p>
+
+  <h2>What the server keeps</h2>
+  <p>Two tables in the whole system hold anything at all that relates to an
+  installed copy of the app. This is all of it.</p>
+
+  <h3>For every install</h3>
+  <table>
+  <tr><th>What</th><th>Why</th><th>How long</th></tr>
+  <tr><td>A key identifier — a value derived from the public half of the key your
+  device generated. It is not derived from your device's serial number, your Apple
+  ID or anything else about you, and reinstalling the app produces a new,
+  unrelated one.</td><td>To check the signature on later requests.</td>
+  <td>180 days after the last request that used it</td></tr>
+  <tr><td>The public half of that key.</td><td>Same.</td><td>Same</td></tr>
+  <tr><td>A counter of how many times the key has been used.</td>
+  <td>To reject a captured request that is replayed.</td><td>Same</td></tr>
+  <tr><td>Whether the key came from a development build or a released one, and
+  this app's bundle identifier — the same value for every install.</td>
+  <td>To tell a test build from a released one in diagnostics.</td><td>Same</td></tr>
+  <tr><td>The date the key was registered and the date it was last used.</td>
+  <td>To delete keys that are no longer in use.</td><td>Same</td></tr>
+  </table>
+  <p>There is deliberately no column for a user identifier, an IP address, a
+  device name, or anything you have read. The table cannot answer the question
+  &ldquo;what has this person been reading&rdquo; because it does not record it.</p>
+
+  <h3>Only if you turn on notifications</h3>
+  <p>The daily notification is off until you switch it on. When you do, the app
+  registers with the server and it stores: the notification token Apple issues for
+  that install, whether it is a development or production token, your device's
+  language and region setting, your device's time zone, the time of day you chose,
+  whether the notification is on or off, the app's version number, the key
+  identifier above, when the registration was made and last refreshed, which
+  edition was last delivered and when, a count of consecutive delivery failures,
+  and the date the Nous+ subscription proven at registration ends.</p>
+  <p><strong>Switching notifications off deletes that row immediately</strong> —
+  it is a delete, not a flag. If you never switch them off, the row is deleted 180
+  days after the app last contacted the server.</p>
+
+  <h2>Subscriptions and payment</h2>
+  <p>Nous+ is sold through Apple's In-App Purchase system: 1 week free,
+  then US$1.99 per month until cancelled. <strong>Apple takes the
+  payment.</strong> Your name, your Apple ID and your payment details go to Apple
+  and are never sent to this server, which has no way to ask for them.</p>
+  <p>To decide whether a request is entitled, the app sends the signed receipt
+  Apple gives it. The server checks Apple's signature on that receipt and reads
+  six things from it: the app it was issued for, which subscription was bought,
+  when it expires, whether it was refunded, whether it came from Apple's test
+  environment, and the reference number described next. <strong>The receipt
+  itself is then discarded.</strong> It is not written to the database, and no
+  transaction identifier, purchase history, price or Apple ID is stored.</p>
+  <h3>The subscription reference number</h3>
+  <p>So that one subscription unlocks one copy of the app rather than being passed
+  around, the app generates a <strong>random reference number</strong> when you
+  subscribe and hands it to Apple as part of the purchase. It is not derived from
+  anything: not from your Apple ID, not from your device, not from you. Apple
+  echoes it back inside every signed receipt for that subscription, and the server
+  stores it next to the key identifier of the copy of the app that first presented
+  it, along with when that happened, when it was last seen, and how many times it
+  has moved to a different copy.</p>
+  <p>That is the whole of it: a random number, an anonymous key identifier and
+  three dates. It is deleted when you delete your data, and automatically after a
+  year in which the subscription is never presented.</p>
+  <p>The one other thing kept is the entitlement's end date, and only if you have
+  notifications on: it is stored on the notification row described above, so that
+  delivery stops when a subscription lapses without your device having to call
+  in.</p>
+  <p>You can view or cancel the subscription at any time at
+  <a href="https://apps.apple.com/account/subscriptions">https://apps.apple.com/account/subscriptions</a>. See the
+  <a href="../terms/">subscription terms</a> for the rest.</p>
+
+  <h2>IP addresses</h2>
+  <p>Your IP address reaches the server, because that is how the internet
+  delivers a request. It is used for one thing: counting requests per minute so
+  that the free, unauthenticated part of the handshake cannot be abused. The
+  count lives in memory, in one-minute windows, and IPv6 addresses are truncated
+  to their network prefix before being counted. <strong>No IP address is written
+  to the database, ever.</strong></p>
+
+  <h2>Diagnostic logs</h2>
+  <p>The server writes a line per authenticated request containing whether the
+  signature verified, the reason if it did not, the use counter, the path that was
+  requested, and the <em>first eight characters</em> of the key identifier — a
+  prefix, so a log line cannot be tied back to a row on its own. Turning
+  notifications on or off writes a line with the language, time zone and time of
+  day chosen.</p>
+  <p>Nothing written by this server records a search term: the line records which
+  endpoint was called, never the query. A search does travel to the server inside
+  the web address of the request, so it can appear in the connection records the
+  hosting provider keeps for its own operations, in the same way any website's
+  search does. It is not stored here, not kept in the database, and not associated
+  with an install.</p>
+  <p>These lines go to the hosting provider's log stream and are kept for as long
+  as that provider keeps them. They are read to diagnose faults and are not
+  analysed for anything else.</p>
+
+  <h2>What is never collected</h2>
+  <p>No name, email address, phone number, postal address, contacts, photos,
+  calendar, microphone, camera, health or fitness data, or precise or approximate
+  location. No advertising identifier. No fingerprinting. The app contains no
+  analytics SDK, no crash-reporting SDK, no advertising network and no
+  third-party tracker of any kind, and no data leaves the app except the requests
+  to this server described above.</p>
+  <p>Nothing is sold. Nothing is shared with data brokers. Nothing is used to
+  build a profile or to target advertising, here or anywhere else.</p>
+
+  <h2>Who else processes anything</h2>
+  <table>
+  <tr><th>Who</th><th>What they handle</th></tr>
+  <tr><td>Apple</td><td>App Attest, the App Store purchase, and delivery of
+  notifications. Apple sees what Apple always sees as the platform operator; this
+  app sends it nothing extra.</td></tr>
+  <tr><td>Fly.io</td><td>Runs the server, in Amsterdam. Handles the network
+  connection and holds the log lines described above.</td></tr>
+  <tr><td>Cloudflare R2</td><td>Holds encrypted backups of the server's database,
+  in the EU. The backups contain the same two tables and nothing more.</td></tr>
+  <tr><td>Anthropic</td><td>Generates the written summaries, from published news
+  articles. See below.</td></tr>
+  </table>
+  <p>There are no other processors, and no analytics or advertising vendor of any
+  kind. Each of the four is bound by its own agreement to protect what it handles
+  to the same standard set out in this policy, and none of them is permitted to
+  use it for their own purposes.</p>
+
+  <h2>The news itself, and the summaries</h2>
+  <p>Nous reads publicly available sources — RSS and Atom feeds published by
+  news outlets, research labs and companies; Hacker News; arXiv; and public posts
+  from a curated list of accounts on X. It ranks them and writes short summaries
+  using Anthropic's models.</p>
+  <p>All of that happens on a schedule, on the server, before any device asks for
+  anything. <strong>Your reading is not part of it.</strong> Nothing you tap,
+  search or open is sent to Anthropic or to any other model provider, and no
+  request from your device causes a model to run. What is sent to Anthropic is the
+  text of published articles, which was already public.</p>
+  <p>Because the sources are third parties, Nous does not control what they
+  publish. Summaries are generated automatically and can be wrong. If something in
+  an edition is inaccurate, offensive or should not be there, write to <a href="mailto:hi@alp.me">hi@alp.me</a> and
+  it will be removed.</p>
+
+  <h2>Deleting your data</h2>
+  <p>There is no account to delete, but there are rows, and all of them can go —
+  from inside the app, without asking anyone:</p>
+  <ul>
+  <li><strong>Delete all my data</strong>, in the app's settings, deletes
+  everything described above in one action: the key identifier, its public key and
+  counter, any notification record, and the subscription reference number. It
+  happens immediately, and the app tells you what was deleted. The app then starts
+  fresh with a new, unrelated identifier the next time it is opened. Your
+  subscription is not affected — it belongs to your Apple ID, not to this app —
+  and it will simply attach itself to the new copy.</li>
+  <li><strong>Switching notifications off</strong> deletes the notification record
+  on its own, immediately, and leaves the rest.</li>
+  <li><strong>Deleting the app</strong> without using either control leaves only
+  the key identifier, which is deleted automatically 180 days later.</li>
+  </ul>
+  <p>If you would rather ask a person, write to <a href="mailto:hi@alp.me">hi@alp.me</a>. Because nothing held here
+  identifies you, a mailed request has to name the identifier the app shows in its
+  settings — there is no other way to tell which row is yours, which is a
+  consequence of collecting nothing rather than an obstacle put in the way.</p>
+
+  <h2>Your rights</h2>
+  <p>If you are in the EU, the UK, or a US state with a privacy statute, you have
+  rights to access, correct, delete and export what is held about you, and to
+  object to its processing. Exercise any of them by writing to <a href="mailto:hi@alp.me">hi@alp.me</a>. The
+  practical answer is usually short, because the honest answer to &ldquo;what do
+  you hold about me&rdquo; is the two rows described above and nothing else.</p>
+  <p>The legal basis for holding them, under the GDPR, is legitimate interest:
+  running the service, preventing abuse, and delivering a notification you asked
+  for. There is no automated decision-making about you.</p>
+  <p>The one thing that is switched on by an explicit choice is the daily
+  notification, and withdrawing that choice is the toggle in the app: switching it
+  off both stops the notification and deletes the record, in one action. Nothing
+  else requires or relies on your consent, so there is nothing else to withdraw —
+  and the rest can still be deleted, as described above.</p>
+
+  <h2>Children</h2>
+  <p>Nous is a news reader for a professional audience. It is not directed at
+  children, collects nothing that would identify a child, and has no social
+  features.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the date at the top changes with it, and this page is
+  the current version. Material changes will also be noted in the app's release
+  notes.</p>
+
+</main>
+
+<footer class="site-footer">
+  <div>
+    <ul>
+      <li><a href="../privacy/">Privacy Policy</a></li>
+      <li><a href="../terms/">Subscription terms</a></li>
+      <li><a href="../support/">Support</a></li>
+      <li><a href="mailto:hi@alp.me">hi@alp.me</a></li>
+    </ul>
+    <p>Nous is made by Alp Özcan.</p>
+  </div>
+</footer>
+
+</body>
+</html>
