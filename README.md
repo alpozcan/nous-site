@@ -1,7 +1,8 @@
 # nous-site
 
-The public website for **Nous**, an iOS app that publishes one daily edition of
-ranked artificial-intelligence news.
+The public website for **Nous AI Newsletter**, an iOS app that publishes one
+daily edition of ranked artificial-intelligence news. "Nous" on its own is the
+short name used in running prose; the App Store product name is the full one.
 
 Live at <https://alpozcan.github.io/nous-site/>.
 
@@ -38,18 +39,34 @@ outline and visible keyboard focus.
 
 ## Where the wording comes from
 
-The prose in `privacy/`, `terms/` and `support/` is the approved wording that the
-Nous backend used to serve at `/legal/privacy`, `/legal/terms` and `/support`,
-copied verbatim. Its generator lives in the `nous-api` repository under
-`src/lib/legal/`.
+The prose in `privacy/`, `terms/` and `support/` began as the approved wording
+the `nous-api` backend served at `/legal/privacy`, `/legal/terms` and `/support`,
+generated from `src/lib/legal/` in that repository.
 
-These pages are now the canonical, published versions. Hosting them here rather
-than on the backend means they keep answering even when the API is down or being
-redeployed — which matters, because App Store Connect requires the privacy and
-support URLs to resolve.
+**The backend no longer serves those pages.** These files are the only published
+privacy policy, subscription terms and support page there are, and the
+`src/lib/legal/` generator is no longer the source of truth for them — this
+repository is. Do not regenerate these pages from it; edit them here.
 
-If the wording changes, change it here, and update the `Last updated` date at the
-top of the page that changed.
+Hosting them here rather than on the backend means they keep answering even when
+the API is down, being redeployed, or rewritten — which matters, because App
+Store Connect requires the privacy and support URLs to resolve, and has no notion
+of a page being temporarily unavailable.
+
+Because there is no second copy to check against, treat an edit to these three
+pages as a change to a published legal document: make it deliberately, and update
+the `Last updated` date at the top of every page whose text changed.
+
+### Renaming the product
+
+The page paths carry no product name, so a rename never requires an App Store
+Connect edit — only the copy changes. When renaming, use the full App Store name
+where a page identifies the product (page title, `h1`, the "who is responsible"
+clause in the privacy policy, the licence clause in the terms) and the short name
+in running prose. The subscription tier is `Nous+` and does not track the app
+name. `Settings → Notifications → Nous` on the support page is the app's
+on-device display name (`CFBundleDisplayName`), not the App Store name, so it
+changes only if that bundle key does.
 
 ## Contact
 
