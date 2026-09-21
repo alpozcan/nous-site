@@ -34,7 +34,9 @@
   identifier per installed copy of the app so that it can tell a real copy of the
   app from a script, and, only if you switch notifications on, the settings a
   notification needs. It contains no analytics, no advertising, and no third-party
-  trackers, and nothing about you is sold or shared for advertising.</p>
+  trackers, and nothing about you is sold or shared for advertising. If the app
+  crashes, it sends a technical crash report that says nothing about what you were
+  reading and is not tied to you or to your copy of the app.</p>
   </div>
 
   <h2>Who is responsible</h2>
@@ -129,9 +131,11 @@
   count lives in memory, in one-minute windows, and IPv6 addresses are truncated
   to their network prefix before being counted. <strong>No IP address is written
   to the database, ever.</strong></p>
-  <p>That covers the app's requests to the server. Asking for this web page is a
-  separate thing, handled by a separate host: see
-  <a href="#the-website">the website you are reading this on</a> below.</p>
+  <p>That covers the app's requests to the server. A crash report is a request to
+  a different service, described under <a href="#crash-reports">crash reports</a>
+  below, and that service is set not to store the address it arrives from. Asking
+  for this web page is a separate thing again, handled by a separate host: see
+  <a href="#the-website">the website you are reading this on</a>.</p>
 
   <h2>Diagnostic logs</h2>
   <p>The server writes a line per authenticated request containing whether the
@@ -150,13 +154,39 @@
   as that provider keeps them. They are read to diagnose faults and are not
   analysed for anything else.</p>
 
+  <h2 id="crash-reports">Crash reports</h2>
+  <p>If the app crashes, it sends a crash report the next time it is opened, so
+  that the fault can be found and fixed. Reports go to <strong>Sentry</strong>, a
+  crash reporting service, and are stored in the EU, in Frankfurt. This is the one
+  thing the app sends anywhere other than the server described above.</p>
+  <p>A report is technical. It contains where in the app's code the failure
+  happened, the app's version and build number, the iOS version, and facts about
+  the device such as its model, processor type, memory, screen size, language and
+  region setting, and time zone. The same kind of report is sent in the rare case
+  that the app has to rebuild its local storage at launch, with the database error
+  code that caused it.</p>
+  <p>A report does <strong>not</strong> contain anything you read, saved, searched
+  for or tapped, any web address the app requested, a screenshot, or the key
+  identifier and reference number described earlier. The reporting software would
+  normally add two identifiers of its own that stay the same for one copy of the
+  app; both are removed on your device before a report is sent, so two reports
+  cannot be tied to each other, to a row on the server, or to you. Every optional
+  kind of collection the software offers is switched off: no usage or session
+  counts, no performance measurement, no record of taps or screens.</p>
+  <p>Sentry receives your IP address when a report arrives, because that is how
+  the internet delivers a request, and is set not to store it. Reports are deleted
+  automatically after no more than 90 days. Because a report carries nothing that
+  identifies you, there is no way to find or delete one person's reports on
+  request, which is a consequence of collecting nothing rather than an obstacle
+  put in the way.</p>
+
   <h2>What is never collected</h2>
   <p>No name, email address, phone number, postal address, contacts, photos,
   calendar, microphone, camera, health or fitness data, or precise or approximate
   location. No advertising identifier. No fingerprinting. The app contains no
-  analytics SDK, no crash-reporting SDK, no advertising network and no
-  third-party tracker of any kind, and no data leaves the app except the requests
-  to this server described above.</p>
+  analytics SDK, no advertising network and no third-party tracker of any kind,
+  and no data leaves the app except the requests to this server and the crash
+  reports described above.</p>
   <p>Nothing is sold. Nothing is shared with data brokers. Nothing is used to
   build a profile or to target advertising, here or anywhere else.</p>
 
@@ -172,8 +202,10 @@
   in the EU. The backups contain the same two tables and nothing more.</td></tr>
   <tr><td>Anthropic</td><td>Generates the written summaries, from published news
   articles. See below.</td></tr>
+  <tr><td>Sentry</td><td>Receives and stores crash reports, in the EU (Frankfurt).
+  See <a href="#crash-reports">crash reports</a> above.</td></tr>
   </table>
-  <p>Those four are the whole list for the app and its server, and none of them is
+  <p>Those five are the whole list for the app and its server, and none of them is
   an analytics or advertising vendor of any kind. Each is bound by its own
   agreement to protect what it handles to the same standard set out in this
   policy, and none of them is permitted to use it for their own purposes.</p>
@@ -211,7 +243,8 @@
   from inside the app, without asking anyone:</p>
   <ul>
   <li><strong>Delete all my data</strong>, in the app's settings, deletes
-  everything described above in one action: the key identifier, its public key and
+  everything the server holds about your copy of the app in one action: the key
+  identifier, its public key and
   counter, any notification record, and the subscription reference number. It
   happens immediately, and the app tells you what was deleted. The app then starts
   fresh with a new, unrelated identifier the next time it is opened. Your
@@ -232,10 +265,13 @@
   rights to access, correct, delete and export what is held about you, and to
   object to its processing. Exercise any of them by writing to <a href="mailto:hi@alp.me">hi@alp.me</a>. The
   practical answer is usually short, because the honest answer to &ldquo;what do
-  you hold about me&rdquo; is the two rows described above and nothing else.</p>
+  you hold about me&rdquo; is the two rows described above and nothing else. Crash
+  reports are not part of that answer because they cannot be tied to a person or
+  to a copy of the app.</p>
   <p>The legal basis for holding them, under the GDPR, is legitimate interest:
   running the service, preventing abuse, and delivering a notification you asked
-  for. There is no automated decision-making about you.</p>
+  for. Crash reports rest on the same basis: finding and fixing faults in the app.
+  There is no automated decision-making about you.</p>
   <p>The one thing that is switched on by an explicit choice is the daily
   notification, and withdrawing that choice is the toggle in the app: switching it
   off both stops the notification and deletes the record, in one action. Nothing
