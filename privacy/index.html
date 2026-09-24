@@ -26,7 +26,7 @@
 <main id="main">
   <h1>Nous AI Newsletter: Privacy Policy</h1>
   <p class="lede">Nous AI Newsletter has no accounts and never asks who you are. This is exactly what the app sends, what the server keeps, and for how long.</p>
-  <p class="revised">Last updated 2026-09-21</p>
+  <p class="revised">Last updated 2026-09-24</p>
   <div class="note">
   <p><strong>The short version.</strong> Nous has no accounts. There is nothing to
   sign up for, no email address to give, and no password. The app does not ask who
@@ -200,8 +200,9 @@
   connection and holds the log lines described above.</td></tr>
   <tr><td>Cloudflare R2</td><td>Holds encrypted backups of the server's database,
   in the EU. The backups contain the same two tables and nothing more.</td></tr>
-  <tr><td>Anthropic</td><td>Generates the written summaries, from published news
-  articles. See below.</td></tr>
+  <tr><td>OpenRouter</td><td>Passes the server's requests for written summaries,
+  made from published news articles, to a provider that runs the model. The model
+  currently used is Qwen, made by Alibaba. See below.</td></tr>
   <tr><td>Sentry</td><td>Receives and stores crash reports, in the EU (Frankfurt).
   See <a href="#crash-reports">crash reports</a> above.</td></tr>
   </table>
@@ -227,12 +228,12 @@
   <p>Nous reads publicly available sources: RSS and Atom feeds published by
   news outlets, research labs and companies; Hacker News; arXiv; and public posts
   from a curated list of accounts on X. It ranks them and writes short summaries
-  using Anthropic's models.</p>
+  using a large language model, reached through OpenRouter.</p>
   <p>All of that happens on a schedule, on the server, before any device asks for
   anything. <strong>Your reading is not part of it.</strong> Nothing you tap,
-  search or open is sent to Anthropic or to any other model provider, and no
-  request from your device causes a model to run. What is sent to Anthropic is the
-  text of published articles, which was already public.</p>
+  search or open is sent to OpenRouter or to any other model provider, and no
+  request from your device causes a server-side model to run. What is sent to
+  OpenRouter is the text of published articles, which was already public.</p>
   <p>Because the sources are third parties, Nous does not control what they
   publish. Summaries are generated automatically and can be wrong. If something in
   an edition is inaccurate, offensive or should not be there, write to <a href="mailto:hi@alp.me">hi@alp.me</a> and
