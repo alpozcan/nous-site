@@ -14,6 +14,7 @@ Live at <https://alpozcan.github.io/nous-site/>.
 | `privacy/index.html`| <https://alpozcan.github.io/nous-site/privacy>   |
 | `terms/index.html`  | <https://alpozcan.github.io/nous-site/terms>     |
 | `support/index.html`| <https://alpozcan.github.io/nous-site/support>   |
+| `licenses/supertonic-openrail-m.txt` | the voice model's licence, linked from the terms (OpenRAIL-M 4b) |
 
 The privacy, terms and support URLs are the ones registered in App Store
 Connect, so **their paths must not change**. Each is a directory with an
