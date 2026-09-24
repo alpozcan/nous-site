@@ -36,7 +36,9 @@
   notification needs. It contains no analytics, no advertising, and no third-party
   trackers, and nothing about you is sold or shared for advertising. If the app
   crashes, it sends a technical crash report that says nothing about what you were
-  reading and is not tied to you or to your copy of the app.</p>
+  reading and is not tied to you or to your copy of the app. From version 1.2, the
+  spoken summary of the day is written, translated and read aloud on your device;
+  nothing you listen to leaves it.</p>
   </div>
 
   <h2>Who is responsible</h2>
@@ -57,7 +59,8 @@
 
   <h2>What the server keeps</h2>
   <p>Two tables in the whole system hold anything at all that relates to an
-  installed copy of the app. This is all of it.</p>
+  installed copy of the app, and from version 1.2 a third, used only if the voice
+  for Listen is downloaded through Cloudflare. This is all of it.</p>
 
   <h3>For every install</h3>
   <table>
@@ -93,6 +96,18 @@
   <p><strong>Switching notifications off deletes that row immediately</strong>:
   it is a delete, not a flag. If you never switch them off, the row is deleted 180
   days after the app last contacted the server.</p>
+
+  <h3>Only if the voice is downloaded through Cloudflare (version 1.2 and later)</h3>
+  <p>When the app fetches the voice for Listen from Cloudflare (see
+  <a href="#listening">Listening</a>), it first asks the server for download links.
+  So that one copy of the app cannot be used to download the voice over and over,
+  the server keeps, per install and per day: the key identifier above, the date,
+  how many download links it issued that day, and the total size of the files
+  those links cover. These rows are deleted after 30 days.</p>
+  <p>If a copy of the app is used to request far more downloads than the app ever
+  makes, the server may also record its key identifier, the reason and the date,
+  and refuse it further links. That record is deleted with your data, or 180 days
+  after the app last contacted the server.</p>
 
   <h2>Subscriptions and payment</h2>
   <p>Nous+ is sold through Apple's In-App Purchase system as two plans: 1 week
@@ -185,21 +200,26 @@
   calendar, microphone, camera, health or fitness data, or precise or approximate
   location. No advertising identifier. No fingerprinting. The app contains no
   analytics SDK, no advertising network and no third-party tracker of any kind,
-  and no data leaves the app except the requests to this server and the crash
-  reports described above.</p>
+  and no data leaves the app except the requests to this server, the crash
+  reports described above and, from version 1.2, the download of the voice
+  described under <a href="#listening">Listening</a>.</p>
   <p>Nothing is sold. Nothing is shared with data brokers. Nothing is used to
   build a profile or to target advertising, here or anywhere else.</p>
 
   <h2>Who else processes anything</h2>
   <table>
   <tr><th>Who</th><th>What they handle</th></tr>
-  <tr><td>Apple</td><td>App Attest, the App Store purchase, and delivery of
-  notifications. Apple sees what Apple always sees as the platform operator; this
-  app sends it nothing extra.</td></tr>
+  <tr><td>Apple</td><td>App Attest, the App Store purchase, delivery of
+  notifications and, from version 1.2, delivery of the voice for Listen. Apple sees
+  what Apple always sees as the platform operator; this app sends it nothing extra.
+  The Apple Intelligence and translation features Listen uses run on your
+  device.</td></tr>
   <tr><td>Fly.io</td><td>Runs the server, in Amsterdam. Handles the network
   connection and holds the log lines described above.</td></tr>
   <tr><td>Cloudflare R2</td><td>Holds encrypted backups of the server's database,
-  in the EU. The backups contain the same two tables and nothing more.</td></tr>
+  in the EU. The backups contain the same tables and nothing more. From version
+  1.2 it also stores the files of the voice for Listen and delivers them to devices,
+  in the EU. See <a href="#listening">Listening</a>.</td></tr>
   <tr><td>OpenRouter</td><td>Passes the server's requests for written summaries,
   made from published news articles, to a provider that runs the model. The model
   currently used is Qwen, made by Alibaba. See below.</td></tr>
@@ -218,7 +238,7 @@
   of these pages is therefore a request to GitHub, and GitHub records that request,
   including your IP address, in its own logs, under its own privacy practices,
   in the same way that any web host records a request for any page.</p>
-  <p>That is the whole of GitHub's involvement. It holds no app data: not the two
+  <p>That is the whole of GitHub's involvement. It holds no app data: none of the
   tables above, not a notification record, not a subscription reference number.
   These pages carry no analytics, no cookies, no scripts, and nothing loaded from
   any other site, so reading them tells the app nothing about you and tells the
@@ -239,6 +259,43 @@
   an edition is inaccurate, offensive or should not be there, write to <a href="mailto:hi@alp.me">hi@alp.me</a> and
   it will be removed.</p>
 
+  <h2 id="listening">Listening (version 1.2 and later)</h2>
+  <p>Listen reads a spoken summary of the day, one, two or five minutes long.
+  <strong>All of it happens on your device.</strong></p>
+  <ul>
+  <li>The summary is written on your device. Where your device supports it,
+  Apple Intelligence writes it with Apple's on-device model; this app never uses
+  Apple's cloud models. Elsewhere it is put together from the edition's own
+  summaries. Either way, it is made only from the day's published edition.</li>
+  <li>If you listen in another language, it is translated on your device by
+  Apple's translation feature. iOS may download that language to your device the
+  first time.</li>
+  <li>It is read aloud by the Nous voice, a speech model that runs on your
+  device. The voice is synthetic: it is generated by a machine and is not a
+  recording of a person.</li>
+  </ul>
+  <p>Nothing you listen to, and none of your listening choices (the length, the
+  voice, the speed, the language), is sent anywhere. They are stored on your
+  device and nowhere else.</p>
+  <h3>Downloading the voice</h3>
+  <p>The voice is too large to include in the app, so it is downloaded once,
+  about 75 MB, the first time it is needed, and updated occasionally. It comes
+  from one of two places:</p>
+  <ul>
+  <li><strong>Apple</strong>, which delivers it the way it delivers the app
+  itself.</li>
+  <li><strong>Cloudflare R2</strong>, in the EU. The app first sends the server
+  one signed request, like any other, and the server answers with links that stop
+  working after 24 hours. Your device then downloads the files from Cloudflare,
+  which receives your IP address because that is how the internet delivers a
+  file. Access logging is not switched on for these files, so no record of the
+  download comes back to Nous.</li>
+  </ul>
+  <p>The files are the same for every copy of the app and contain nothing about
+  you. Before downloading, the app checks that your device has enough free space;
+  that figure never leaves your device. You can remove the voice at any time in the
+  app's settings.</p>
+
   <h2>Deleting your data</h2>
   <p>There is no account to delete, but there are rows, and all of them can go,
   from inside the app, without asking anyone:</p>
@@ -246,7 +303,8 @@
   <li><strong>Delete all my data</strong>, in the app's settings, deletes
   everything the server holds about your copy of the app in one action: the key
   identifier, its public key and
-  counter, any notification record, and the subscription reference number. It
+  counter, any notification record, the subscription reference number, and any
+  record of voice downloads. It
   happens immediately, and the app tells you what was deleted. The app then starts
   fresh with a new, unrelated identifier the next time it is opened. Your
   subscription is not affected: it belongs to your Apple ID, not to this app,
@@ -266,7 +324,7 @@
   rights to access, correct, delete and export what is held about you, and to
   object to its processing. Exercise any of them by writing to <a href="mailto:hi@alp.me">hi@alp.me</a>. The
   practical answer is usually short, because the honest answer to &ldquo;what do
-  you hold about me&rdquo; is the two rows described above and nothing else. Crash
+  you hold about me&rdquo; is the rows described above and nothing else. Crash
   reports are not part of that answer because they cannot be tied to a person or
   to a copy of the app.</p>
   <p>The legal basis for holding them, under the GDPR, is legitimate interest:
