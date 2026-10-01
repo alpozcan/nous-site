@@ -26,7 +26,7 @@
 <main id="main">
   <h1>Nous AI Newsletter: Privacy Policy</h1>
   <p class="lede">Nous AI Newsletter has no accounts and never asks who you are. This is exactly what the app sends, what the server keeps, and for how long.</p>
-  <p class="revised">Last updated 2026-09-24</p>
+  <p class="revised">Last updated 2026-10-01</p>
   <div class="note">
   <p><strong>The short version.</strong> Nous has no accounts. There is nothing to
   sign up for, no email address to give, and no password. The app does not ask who
@@ -36,7 +36,9 @@
   notification needs. It contains no analytics, no advertising, and no third-party
   trackers, and nothing about you is sold or shared for advertising. If the app
   crashes, it sends a technical crash report that says nothing about what you were
-  reading and is not tied to you or to your copy of the app. From version 1.2, the
+  reading and is not tied to you or to your copy of the app. From version 1.2.3 it
+  also measures how quickly its screens load, and you can switch all of this off
+  in Settings. From version 1.2, the
   spoken summary of the day is written, translated and read aloud on your device;
   nothing you listen to leaves it.</p>
   </div>
@@ -179,15 +181,29 @@
   the device such as its model, processor type, memory, screen size, language and
   region setting, and time zone. The same kind of report is sent in the rare case
   that the app has to rebuild its local storage at launch, with the database error
-  code that caused it.</p>
-  <p>A report does <strong>not</strong> contain anything you read, saved, searched
-  for or tapped, any web address the app requested, a screenshot, or the key
-  identifier and reference number described earlier. The reporting software would
+  code that caused it, and when a screen shows an error that suggests the service
+  itself is broken, with a short fixed code naming the kind of failure.</p>
+  <p id="performance">From version 1.2.3, the app also sends performance
+  measurements to Sentry: how long each screen takes to appear and to show its
+  stories, how smoothly it draws, and when the app stops responding or is closed
+  by the system for using too much memory. With a report, it sends a short trail
+  of the screens opened before it and, for each story opened from a list, which
+  list it was in, its topic (such as Research or Open Source, the same for every
+  reader) and its position in that list. That is all a trail contains: never a
+  story's title or address, and nothing you typed.</p>
+  <p>A report does <strong>not</strong> contain the title, text or address of
+  anything you read or saved, anything you searched for or typed, any web address
+  the app requested, a screenshot, or the key identifier and reference number
+  described earlier. The reporting software would
   normally add two identifiers of its own that stay the same for one copy of the
   app; both are removed on your device before a report is sent, so two reports
-  cannot be tied to each other, to a row on the server, or to you. Every optional
-  kind of collection the software offers is switched off: no usage or session
-  counts, no performance measurement, no record of taps or screens.</p>
+  cannot be tied to each other, to a row on the server, or to you. Every other
+  optional kind of collection the software offers is switched off: no usage or
+  session counts, no recording of the screen, no record of the web requests the app
+  makes, and no identifier sent to any other service.</p>
+  <p><strong>You can switch it off.</strong> Settings, Data and offline, Send crash
+  reports. It is on unless you turn it off; while it is off, nothing described in
+  this section is sent at all, and turning it off stops reporting at once.</p>
   <p>Sentry receives your IP address when a report arrives, because that is how
   the internet delivers a request, and is set not to store it. Reports are deleted
   automatically after no more than 90 days. Because a report carries nothing that
@@ -223,7 +239,8 @@
   <tr><td>OpenRouter</td><td>Passes the server's requests for written summaries,
   made from published news articles, to a provider that runs the model. The model
   currently used is Qwen, made by Alibaba. See below.</td></tr>
-  <tr><td>Sentry</td><td>Receives and stores crash reports, in the EU (Frankfurt).
+  <tr><td>Sentry</td><td>Receives and stores crash reports and performance
+  measurements, in the EU (Frankfurt).
   See <a href="#crash-reports">crash reports</a> above.</td></tr>
   </table>
   <p>Those five are the whole list for the app and its server, and none of them is
@@ -329,7 +346,8 @@
   to a copy of the app.</p>
   <p>The legal basis for holding them, under the GDPR, is legitimate interest:
   running the service, preventing abuse, and delivering a notification you asked
-  for. Crash reports rest on the same basis: finding and fixing faults in the app.
+  for. Crash reports and performance measurements rest on the same basis: finding
+  and fixing faults in the app, and you can switch them off in the app.
   There is no automated decision-making about you.</p>
   <p>The one thing that is switched on by an explicit choice is the daily
   notification, and withdrawing that choice is the toggle in the app: switching it
