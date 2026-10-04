@@ -404,7 +404,13 @@
   happens immediately, and the app tells you what was deleted. The app then starts
   fresh with a new, unrelated identifier the next time it is opened. Your
   subscription is not affected: it belongs to your Apple ID, not to this app,
-  and it will simply attach itself to the new copy.</li>
+  and it will simply attach itself to the new copy. One thing outlives the
+  deletion briefly: a one-way fingerprint of the subscription reference number,
+  with how many times that subscription has moved between copies of the app and
+  when it last moved, and nothing that identifies your copy of the app. It stops
+  a deletion being used to pass one subscription between several people, and it
+  is deleted when the subscription attaches to your new copy, or after about two
+  days at the latest.</li>
   <li><strong>Switching notifications off</strong> deletes the notification record
   on its own, immediately, with any breaking-alert record, and leaves the rest.</li>
   <li><strong>Switching breaking alerts off</strong> deletes the list of what you
