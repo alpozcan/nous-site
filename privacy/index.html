@@ -26,7 +26,7 @@
 <main id="main">
   <h1>Nous AI Newsletter: Privacy Policy</h1>
   <p class="lede">Nous AI Newsletter has no accounts and never asks who you are. This is exactly what the app sends, what the server keeps, and for how long.</p>
-  <p class="revised">Last updated 2026-10-01</p>
+  <p class="revised">Last updated 2026-10-04</p>
   <div class="note">
   <p><strong>The short version.</strong> Nous has no accounts. There is nothing to
   sign up for, no email address to give, and no password. The app does not ask who
@@ -40,7 +40,11 @@
   also measures how quickly its screens load, and you can switch all of this off
   in Settings. From version 1.2, the
   spoken summary of the day is written, translated and read aloud on your device;
-  nothing you listen to leaves it.</p>
+  nothing you listen to leaves it. From version 2.0, the companies and models you
+  follow, your reading history and your weekly recap stay on your device too. The
+  one exception is your own choice: if you turn on breaking alerts, the list of
+  what you follow is sent so that the server knows what to alert you about, and it
+  is deleted when you turn them off.</p>
   </div>
 
   <h2>Who is responsible</h2>
@@ -62,7 +66,9 @@
   <h2>What the server keeps</h2>
   <p>Two tables in the whole system hold anything at all that relates to an
   installed copy of the app, and from version 1.2 a third, used only if the voice
-  for Listen is downloaded through Cloudflare. This is all of it.</p>
+  for Listen is downloaded through Cloudflare. From version 2.0 there are two more,
+  used only if you turn on breaking alerts or use Give a free week. This is all of
+  it.</p>
 
   <h3>For every install</h3>
   <table>
@@ -94,10 +100,34 @@
   identifier above, when the registration was made and last refreshed, which
   edition was last delivered and when, a count of consecutive delivery failures,
   and, if the app proved a Nous+ subscription when it registered, the date that
-  subscription ends.</p>
+  subscription ends. From version 2.0 it also stores whether the app wants a
+  silent update shortly before your notification, and which edition that update
+  last named and when. That silent update carries only the edition's date: it
+  lets the app download the day's edition, and for Nous+ prepare the spoken
+  brief, before you open it. Nothing is shown and nothing is sent back about
+  it.</p>
   <p><strong>Switching notifications off deletes that row immediately</strong>:
   it is a delete, not a flag. If you never switch them off, the row is deleted 180
   days after the app last contacted the server.</p>
+
+  <h3 id="breaking-alerts">Only if you turn on breaking alerts (Nous+, version 2.0 and later)</h3>
+  <p>Breaking alerts are off until you switch them on. When you do, the app sends
+  the server the companies, models and topics you follow, so that it can tell you
+  when something major happens to one of them. They are sent as entries from
+  Nous's own list of companies, models and topics, which is the same for every
+  reader. The server stores them next to the notification record above, keyed by
+  that install's notification token, together with how many alerts a day you
+  chose (one or two), your quiet hours, the date your Nous+ subscription ends
+  (the only thing read from the subscription receipt, which is then discarded,
+  as described below), and how many alerts it has sent you today. To avoid
+  sending you the same story twice, it also keeps a short record of which
+  stories it alerted that token about.</p>
+  <p>The list of what you follow is not sent at all while breaking alerts are off.
+  <strong>Switching breaking alerts off deletes it immediately.</strong> It is
+  also deleted with the notification record (when you switch notifications off,
+  when you use Delete all my data, or 180 days after the app last contacted the
+  server), and 30 days after your Nous+ subscription ends if you have not renewed
+  it. The record of stories already sent is deleted after 30 days.</p>
 
   <h3>Only if the voice is downloaded through Cloudflare (version 1.2 and later)</h3>
   <p>When the app fetches the voice for Listen from Cloudflare (see
@@ -122,7 +152,9 @@
   when it expires, whether it was refunded, whether it came from Apple's test
   environment, and the reference number described next. <strong>The receipt
   itself is then discarded.</strong> It is not written to the database, and no
-  transaction identifier, purchase history, price or Apple ID is stored.</p>
+  transaction identifier, purchase history, price or Apple ID is stored. The one
+  exception, from version 2.0, is the keyed fingerprint described under
+  <a href="#give-a-free-week">Give a free week</a>, and only if you use it.</p>
   <h3>The subscription reference number</h3>
   <p>So that one subscription unlocks one copy of the app rather than being passed
   around, the app generates a <strong>random reference number</strong> when you
@@ -136,7 +168,25 @@
   three dates. It is deleted when you delete your data, and automatically after a
   year in which the subscription is never presented.</p>
   <p>The one other thing kept is that end date, and only if you have notifications
-  on: it is stored on the notification row described above, and nowhere else.</p>
+  or breaking alerts on: it is stored on the notification and breaking-alert
+  records described above, and nowhere else.</p>
+  <h3 id="give-a-free-week">Give a free week (version 2.0 and later)</h3>
+  <p>A Nous+ subscriber can send a friend a free week. The app asks the server for
+  a code, and the server hands out one of a stock of one-time offer codes issued
+  by Apple, as a link you can share. The usable code is erased from the server as
+  it is handed out; only a one-way fingerprint of it remains, so the same code is
+  never handed out twice.</p>
+  <p>So that each subscription can give at most three free weeks in 30 days, the
+  server stores, next to each code it hands out, the time and a keyed fingerprint
+  of your subscription's original transaction number. The fingerprint is made with
+  a secret key held only by the server and cannot be turned back into the
+  transaction number; the number itself is never stored. It is not linked to your
+  copy of the app, your key identifier or your notification record. These rows are
+  deleted 400 days after the code was handed out.</p>
+  <p>The server never learns who receives the code. Your friend redeems it with
+  Apple, which handles that redemption as it handles any purchase. Redeeming any
+  offer code in the app (Settings, Redeem code) opens Apple's own redemption
+  screen; nothing about it passes through this server.</p>
   <p>You can view or cancel the subscription at any time at
   <a href="https://apps.apple.com/account/subscriptions">https://apps.apple.com/account/subscriptions</a>. See the
   <a href="../terms/">subscription terms</a> for the rest.</p>
@@ -160,7 +210,10 @@
   requested, and the <em>first eight characters</em> of the key identifier (a
   prefix, so a log line cannot be tied back to a row on its own). Turning
   notifications on or off writes a line with the language, time zone and time of
-  day chosen.</p>
+  day chosen. From version 2.0, two kinds of path are shortened before they are
+  written: a request about breaking alerts is logged without the notification
+  token in it, and opening a Storyline is logged without the company, model or
+  topic it was about.</p>
   <p>Nothing written by this server records a search term: the line records which
   endpoint was called, never the query. A search does travel to the server inside
   the web address of the request, so it can appear in the connection records the
@@ -211,6 +264,30 @@
   request, which is a consequence of collecting nothing rather than an obstacle
   put in the way.</p>
 
+  <h2 id="on-your-device">Kept on your device only (version 2.0 and later)</h2>
+  <ul>
+  <li><strong>What you follow.</strong> The companies, models and topics you
+  follow are stored on your device. They mark stories in Today and shape your
+  spoken brief there. They leave the device only if you turn on
+  <a href="#breaking-alerts">breaking alerts</a>.</li>
+  <li><strong>Your reading history and weekly recap.</strong> To show your week
+  in Nous, the app keeps a record on your device of which stories you opened and
+  listened to and which editions and briefs you finished, for eight weeks. The recap is
+  worked out on the device. Neither is ever sent anywhere, and Settings, Clear
+  reading history deletes the record at once.</li>
+  <li><strong>The spoken brief prepared overnight.</strong> For Nous+, the app may
+  prepare the next morning's spoken brief at night while your device is charging,
+  so that it starts at once. It is written, translated and read on your device,
+  exactly as described under <a href="#listening">Listening</a>, and the audio
+  stays on your device.</li>
+  <li><strong>Siri, Shortcuts and the Action button.</strong> The app tells iOS
+  which actions it offers, such as playing the brief or opening today's edition.
+  When you use one, iOS runs it in the app on your device, and the app sends
+  nothing extra to this server because of it. What you say to Siri is handled by
+  Apple under Apple's own privacy policy; Nous never receives your voice or what
+  you said.</li>
+  </ul>
+
   <h2>What is never collected</h2>
   <p>No name, email address, phone number, postal address, contacts, photos,
   calendar, microphone, camera, health or fitness data, or precise or approximate
@@ -225,8 +302,9 @@
   <h2>Who else processes anything</h2>
   <table>
   <tr><th>Who</th><th>What they handle</th></tr>
-  <tr><td>Apple</td><td>App Attest, the App Store purchase, delivery of
-  notifications and, from version 1.2, delivery of the voice for Listen. Apple sees
+  <tr><td>Apple</td><td>App Attest, the App Store purchase, offer code
+  redemption, delivery of notifications, Siri and Shortcuts and, from version 1.2,
+  delivery of the voice for Listen. Apple sees
   what Apple always sees as the platform operator; this app sends it nothing extra.
   The Apple Intelligence and translation features Listen uses run on your
   device.</td></tr>
@@ -296,7 +374,7 @@
   device and nowhere else.</p>
   <h3>Downloading the voice</h3>
   <p>The voice is too large to include in the app, so it is downloaded once,
-  about 75 MB, the first time it is needed, and updated occasionally. It comes
+  about 100 MB, the first time it is needed, and updated occasionally. It comes
   from one of two places:</p>
   <ul>
   <li><strong>Apple</strong>, which delivers it the way it delivers the app
@@ -320,14 +398,20 @@
   <li><strong>Delete all my data</strong>, in the app's settings, deletes
   everything the server holds about your copy of the app in one action: the key
   identifier, its public key and
-  counter, any notification record, the subscription reference number, and any
+  counter, any notification record, any breaking-alert record and the list of
+  what you follow that came with it, the subscription reference number, and any
   record of voice downloads. It
   happens immediately, and the app tells you what was deleted. The app then starts
   fresh with a new, unrelated identifier the next time it is opened. Your
   subscription is not affected: it belongs to your Apple ID, not to this app,
   and it will simply attach itself to the new copy.</li>
   <li><strong>Switching notifications off</strong> deletes the notification record
-  on its own, immediately, and leaves the rest.</li>
+  on its own, immediately, with any breaking-alert record, and leaves the rest.</li>
+  <li><strong>Switching breaking alerts off</strong> deletes the list of what you
+  follow from the server immediately.</li>
+  <li><strong>Give a free week</strong> records are not tied to your copy of the
+  app, so they cannot be found from it; they are deleted automatically 400 days
+  after each code was handed out.</li>
   <li><strong>Deleting the app</strong> without using either control leaves only
   the key identifier, which is deleted automatically 180 days later.</li>
   </ul>
@@ -349,11 +433,11 @@
   for. Crash reports and performance measurements rest on the same basis: finding
   and fixing faults in the app, and you can switch them off in the app.
   There is no automated decision-making about you.</p>
-  <p>The one thing that is switched on by an explicit choice is the daily
-  notification, and withdrawing that choice is the toggle in the app: switching it
-  off both stops the notification and deletes the record, in one action. Nothing
-  else requires or relies on your consent, so there is nothing else to withdraw,
-  and the rest can still be deleted, as described above.</p>
+  <p>The things switched on by an explicit choice are the daily notification and,
+  from version 2.0, breaking alerts. Withdrawing either choice is its toggle in the
+  app: switching it off both stops it and deletes its record, in one action.
+  Nothing else requires or relies on your consent, so there is nothing else to
+  withdraw, and the rest can still be deleted, as described above.</p>
 
   <h2>Children</h2>
   <p>Nous is a news reader for a professional audience. It is not directed at
