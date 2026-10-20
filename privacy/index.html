@@ -26,15 +26,19 @@
 <main id="main">
   <h1>Nous AI Newsletter: Privacy Policy</h1>
   <p class="lede">Nous AI Newsletter has no accounts and never asks who you are. This is exactly what the app sends, what the server keeps, and for how long.</p>
-  <p class="revised">Last updated 2026-10-04</p>
+  <p class="revised">Last updated 2026-10-20</p>
   <div class="note">
   <p><strong>The short version.</strong> Nous has no accounts. There is nothing to
   sign up for, no email address to give, and no password. The app does not ask who
   you are and the server has no way of finding out. It keeps one anonymous
   identifier per installed copy of the app so that it can tell a real copy of the
   app from a script, and, only if you switch notifications on, the settings a
-  notification needs. It contains no analytics, no advertising, and no third-party
-  trackers, and nothing about you is sold or shared for advertising. If the app
+  notification needs. It contains no advertising and no third-party trackers,
+  nothing records what you read, and nothing about you is sold or shared for
+  advertising. From version 2.0, when you buy, renew or restore Nous+, a record of
+  that purchase also goes to <a href="#purchase-records">RevenueCat</a>, which
+  keeps subscription statistics for us under an anonymous identifier and never
+  learns your name, email address or Apple ID. If the app
   crashes, it sends a technical crash report that says nothing about what you were
   reading and is not tied to you or to your copy of the app. From version 1.2.3 it
   also measures how quickly its screens load, and you can switch all of this off
@@ -151,8 +155,10 @@
   six things from it: the app it was issued for, which subscription was bought,
   when it expires, whether it was refunded, whether it came from Apple's test
   environment, and the reference number described next. <strong>The receipt
-  itself is then discarded.</strong> It is not written to the database, and no
-  transaction identifier, purchase history, price or Apple ID is stored. The one
+  itself is then discarded.</strong> It is not written to this server's database,
+  and no transaction identifier, purchase history, price or Apple ID is stored
+  there. (The separate purchase record kept by RevenueCat is described under
+  <a href="#purchase-records">Purchase records</a> below.) The one
   exception, from version 2.0, is the keyed fingerprint described under
   <a href="#give-a-free-week">Give a free week</a>, and only if you use it.</p>
   <h3>The subscription reference number</h3>
@@ -187,6 +193,35 @@
   Apple, which handles that redemption as it handles any purchase. Redeeming any
   offer code in the app (Settings, Redeem code) opens Apple's own redemption
   screen; nothing about it passes through this server.</p>
+  <h3 id="purchase-records">Purchase records: RevenueCat (version 2.0 and later)</h3>
+  <p>From version 2.0, the app uses <strong>RevenueCat</strong>, a subscription
+  service, to keep a record of Nous+ purchases, so that we can see how many people
+  start a trial, subscribe, renew or cancel. RevenueCat does not take payments,
+  does not decide what you can read, and never sees your name, email address,
+  Apple ID or payment details: Apple handles the payment, and this server still
+  decides what is unlocked, exactly as described above.</p>
+  <p>When the app makes or restores a purchase, and when it is opened after one was
+  made elsewhere (a renewal, a redeemed offer code), the RevenueCat code inside the
+  app sends RevenueCat the signed purchase record Apple gave it. That record holds
+  which plan was bought, the price and currency, the purchase and renewal dates,
+  Apple's transaction numbers for it, whether it is a trial or an offer, and the
+  App Store country. With it go a random identifier that RevenueCat creates for
+  your copy of the app, the identifier Apple gives this app for your device (the
+  &ldquo;identifier for vendor&rdquo;, which is the same for every app from the
+  same developer and changes when they are all deleted), the app version, the iOS
+  version, the device model and your language settings. Your IP address reaches
+  RevenueCat because that is how the request is delivered. Apple also tells
+  RevenueCat directly when a subscription renews, lapses or is refunded.</p>
+  <p>The app never gives RevenueCat a name, an email address or any account, never
+  attaches anything else to the record, and never collects an advertising
+  identifier. RevenueCat keeps the record for us, in the United States, under its
+  data processing terms and with the safeguards the GDPR requires for transfers
+  outside the EU. It is used only for subscription statistics and to send us a
+  short notice of a new subscription, never for advertising, never to build a
+  profile, and never combined with data from other apps. It is kept for as long
+  as Nous uses RevenueCat, unless you ask for it to be deleted (see
+  <a href="#deleting">Deleting your data</a>). It is separate from this server:
+  Delete all my data in the app does not reach it.</p>
   <p>You can view or cancel the subscription at any time at
   <a href="https://apps.apple.com/account/subscriptions">https://apps.apple.com/account/subscriptions</a>. See the
   <a href="../terms/">subscription terms</a> for the rest.</p>
@@ -227,8 +262,9 @@
   <h2 id="crash-reports">Crash reports</h2>
   <p>If the app crashes, it sends a crash report the next time it is opened, so
   that the fault can be found and fixed. Reports go to <strong>Sentry</strong>, a
-  crash reporting service, and are stored in the EU, in Frankfurt. This is the one
-  thing the app sends anywhere other than the server described above.</p>
+  crash reporting service, and are stored in the EU, in Frankfurt. Apart from the
+  <a href="#purchase-records">purchase records</a> described above, this is the
+  one thing the app sends anywhere other than the server described above.</p>
   <p>A report is technical. It contains where in the app's code the failure
   happened, the app's version and build number, the iOS version, and facts about
   the device such as its model, processor type, memory, screen size, language and
@@ -292,10 +328,12 @@
   <p>No name, email address, phone number, postal address, contacts, photos,
   calendar, microphone, camera, health or fitness data, or precise or approximate
   location. No advertising identifier. No fingerprinting. The app contains no
-  analytics SDK, no advertising network and no third-party tracker of any kind,
-  and no data leaves the app except the requests to this server, the crash
-  reports described above and, from version 1.2, the download of the voice
-  described under <a href="#listening">Listening</a>.</p>
+  advertising network and no third-party tracker of any kind, and nothing in it
+  records what you read or tap. No data leaves the app except the requests to
+  this server, the crash reports described above, from version 1.2 the download
+  of the voice described under <a href="#listening">Listening</a>, and from
+  version 2.0 the <a href="#purchase-records">purchase records</a> sent to
+  RevenueCat, and only when there is a purchase to record.</p>
   <p>Nothing is sold. Nothing is shared with data brokers. Nothing is used to
   build a profile or to target advertising, here or anywhere else.</p>
 
@@ -320,9 +358,14 @@
   <tr><td>Sentry</td><td>Receives and stores crash reports and performance
   measurements, in the EU (Frankfurt).
   See <a href="#crash-reports">crash reports</a> above.</td></tr>
+  <tr><td>RevenueCat</td><td>From version 2.0, receives and stores the record of
+  each Nous+ purchase, renewal and cancellation, under an anonymous identifier, in
+  the United States, and keeps subscription statistics from it. See
+  <a href="#purchase-records">purchase records</a> above.</td></tr>
   </table>
-  <p>Those five are the whole list for the app and its server, and none of them is
-  an analytics or advertising vendor of any kind. Each is bound by its own
+  <p>Those six are the whole list for the app and its server. None of them is an
+  advertising vendor of any kind, and RevenueCat is the only one that keeps
+  statistics, about purchases and nothing else. Each is bound by its own
   agreement to protect what it handles to the same standard set out in this
   policy, and none of them is permitted to use it for their own purposes.</p>
 
@@ -391,7 +434,7 @@
   that figure never leaves your device. You can remove the voice at any time in the
   app's settings.</p>
 
-  <h2>Deleting your data</h2>
+  <h2 id="deleting">Deleting your data</h2>
   <p>There is no account to delete, but there are rows, and all of them can go,
   from inside the app, without asking anyone:</p>
   <ul>
@@ -420,6 +463,11 @@
   after each code was handed out.</li>
   <li><strong>Deleting the app</strong> without using either control leaves only
   the key identifier, which is deleted automatically 180 days later.</li>
+  <li><strong>Purchase records at RevenueCat</strong> (version 2.0 and later) are
+  not held by this server, so Delete all my data does not reach them. Write to
+  <a href="mailto:hi@alp.me">hi@alp.me</a> with the order number from Apple's
+  purchase receipt email, and the record will be found by that number and
+  deleted.</li>
   </ul>
   <p>If you would rather ask a person, write to <a href="mailto:hi@alp.me">hi@alp.me</a>. Because nothing held here
   identifies you, a mailed request has to name the identifier the app shows in its
@@ -437,7 +485,11 @@
   <p>The legal basis for holding them, under the GDPR, is legitimate interest:
   running the service, preventing abuse, and delivering a notification you asked
   for. Crash reports and performance measurements rest on the same basis: finding
-  and fixing faults in the app, and you can switch them off in the app.
+  and fixing faults in the app, and you can switch them off in the app. The
+  purchase records kept by RevenueCat rest on it too: knowing how the
+  subscription that pays for the service is doing. They hold no name, email
+  address or Apple ID, and you can ask for them to be deleted, as described
+  above.
   There is no automated decision-making about you.</p>
   <p>The things switched on by an explicit choice are the daily notification and,
   from version 2.0, breaking alerts. Withdrawing either choice is its toggle in the
