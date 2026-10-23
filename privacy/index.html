@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
-<meta name="description" content="Nous AI Newsletter has no accounts and never asks who you are. This is exactly what the app sends, what the server keeps, and for how long.">
+<meta name="description" content="Nous AI Newsletter needs no account, and asks who you are only if you choose to create one, for email. This is exactly what the app sends, what the server keeps, and for how long.">
 <link rel="canonical" href="https://alpozcan.github.io/nous-site/privacy/">
 <link rel="stylesheet" href="../style.css">
 <title>Privacy Policy | Nous AI Newsletter</title>
@@ -25,20 +25,29 @@
 
 <main id="main">
   <h1>Nous AI Newsletter: Privacy Policy</h1>
-  <p class="lede">Nous AI Newsletter has no accounts and never asks who you are. This is exactly what the app sends, what the server keeps, and for how long.</p>
-  <p class="revised">Last updated 2026-10-04</p>
+  <p class="lede">Nous AI Newsletter needs no account, and asks who you are only if you choose to create one, for email. This is exactly what the app sends, what the server keeps, and for how long.</p>
+  <p class="revised">Last updated 2026-10-23</p>
   <div class="note">
-  <p><strong>The short version.</strong> Nous has no accounts. There is nothing to
-  sign up for, no email address to give, and no password. The app does not ask who
-  you are and the server has no way of finding out. It keeps one anonymous
+  <p><strong>The short version.</strong> Nous needs no account. Everything in the
+  app works without one and there is no password. From version 2.0 you can choose
+  to create an <a href="#account">optional account</a> with Sign in with Apple,
+  only to get email from Nous: the Monthly AI News Brief and announcements, each
+  switched off until you switch it on. Nothing has been sent to anyone yet. Unless
+  you create that account, the app does not ask who you are and the server has no
+  way of finding out. It keeps one anonymous
   identifier per installed copy of the app so that it can tell a real copy of the
   app from a script, and, only if you switch notifications on, the settings a
-  notification needs. It contains no analytics, no advertising, and no third-party
-  trackers, and nothing about you is sold or shared for advertising. If the app
+  notification needs. It contains no advertising and no third-party trackers,
+  nothing records what you read, and nothing about you is sold or shared for
+  advertising. From version 2.0, each time the app opens it also contacts
+  <a href="#purchase-records">RevenueCat</a>, which keeps subscription statistics
+  for us, whether or not you subscribe, and a record is added when you buy, restore
+  or redeem Nous+. RevenueCat works under an anonymous identifier and never learns
+  your name, email address or Apple ID. If the app
   crashes, it sends a technical crash report that says nothing about what you were
   reading and is not tied to you or to your copy of the app. From version 1.2.3 it
   also measures how quickly its screens load, and you can switch all of this off
-  in Settings. From version 1.2, the
+  in Settings, the contact with RevenueCat included. From version 1.2, the
   spoken summary of the day is written, translated and read aloud on your device;
   nothing you listen to leaves it. From version 2.0, the companies and models you
   follow, your reading history and your weekly recap stay on your device too. The
@@ -52,7 +61,7 @@
   policy, including a request to delete data, write to <a href="mailto:hi@alp.me">hi@alp.me</a>. Mail is usually
   answered within a few days.</p>
 
-  <h2>There is no account</h2>
+  <h2>No account needed</h2>
   <p>The app authenticates itself, not you. It uses <strong>Apple App
   Attest</strong>: on first launch your device generates a cryptographic key
   inside its Secure Enclave, and Apple vouches that the key belongs to a genuine,
@@ -62,13 +71,76 @@
   and it cannot: the key is created on the device, the private half never leaves
   it, and no name, email address, phone number or Apple ID is involved at any
   point.</p>
+  <p>The one exception is the optional account described next. Nothing in the
+  app depends on it: the free edition, Nous+, notifications and everything else
+  work the same without it, and Nous+ belongs to your Apple ID, not to the
+  account.</p>
+
+  <h3 id="account">Only if you create the optional account (version 2.0 and later)</h3>
+  <p>You can create an account in the app's settings, under Account, from a card
+  the app shows once under the end of today's edition, or from a link at the
+  bottom of the Week in AI. The only way to create it is <strong>Sign in with
+  Apple</strong>; there is no password and no other kind of login. Nous asks Apple
+  for your email address only, never your name. Apple lets you share your real
+  address or a <strong>Hide My Email</strong> address that forwards to your inbox;
+  the app shows you which one Nous has.</p>
+  <p>If you create the account, the server keeps:</p>
+  <ul>
+  <li>the email address Apple shared, encrypted, whether it is a Hide My Email
+  address, whether Apple says it is verified, and whether Apple is currently
+  forwarding to it;</li>
+  <li>a keyed fingerprint of the stable account number Apple gives Nous for your
+  Apple ID (the number itself is not stored), so that signing in again finds the
+  same account;</li>
+  <li>a token from Apple, encrypted, that lets Nous tell Apple to disconnect your
+  Apple ID from Nous when you delete the account;</li>
+  <li>which copies of the app are signed in: the account is linked to the
+  anonymous identifier of each copy you sign in on, which is how the app proves
+  it is you without any password or session (at most 20; signing in again on a
+  new device links it too);</li>
+  <li>when the account was created and when it was last used;</li>
+  <li>which emails you switched on or off, when, in which language, region and app
+  version, from which screen, and which exact wording you were shown. These are
+  kept so that Nous can prove you asked, as the law requires. Every version of that
+  wording, in every language, is kept.</li>
+  </ul>
+  <p>There are two kinds of email, each with its own switch, and both start
+  <strong>off</strong>: the <strong>Monthly AI News Brief</strong> (once a month,
+  the stories that mattered most) and <strong>Announcements about Nous</strong>
+  (new features and news about the app, a few times a year). Creating the account
+  does not switch either on. <strong>Nothing has been sent yet.</strong> Before any
+  newsletter or announcement, Nous will email you first, once, so that you know it
+  is coming and can stop it.</p>
+  <p>The account is used for nothing else. It is not linked to what you read, what
+  you follow, your notifications or your subscription, it is never given to
+  RevenueCat, and it is never used for advertising by anyone else, sold or shared
+  with data brokers. You can see everything it keeps in the app, under
+  Account.</p>
+  <p>Signing out, under Account, signs out only the device you are holding: it
+  unlinks that copy of the app and keeps the account. If you stop using Sign in
+  with Apple with Nous in your Apple ID settings, or delete your Apple ID, the app
+  signs out on your device and Apple tells Nous, and the account is then
+  deleted.</p>
+  <p>The account is kept until you delete it. To delete it, open the app's
+  settings, then Account, then Delete account. Everything listed above is deleted
+  at once and Apple is told to disconnect Nous from your Apple ID (if Apple cannot
+  be reached, Nous keeps trying for up to 30 days, with the token encrypted and
+  linked to nothing); backups of the server's database keep it for at most 72
+  hours more. One thing is kept on purpose: the record of each email you switched
+  on and off, with a final &ldquo;switched off&rdquo; for any still on, unlinked
+  from the account. It holds no address, no account and no identifier, only that
+  someone agreed to an email under a given wording on one date and stopped it on
+  another, and it is kept for <strong>three years</strong> as proof of consent,
+  then deleted. Deleting the app's data on the server (below) deletes the account
+  too, if that copy of the app is signed in to one.</p>
 
   <h2>What the server keeps</h2>
   <p>Two tables in the whole system hold anything at all that relates to an
   installed copy of the app, and from version 1.2 a third, used only if the voice
   for Listen is downloaded through Cloudflare. From version 2.0 there are two more,
-  used only if you turn on breaking alerts or use Give a free week. This is all of
-  it.</p>
+  used only if you turn on breaking alerts or use Give a free week, and those of
+  the <a href="#account">optional account</a>, described above, used only if you
+  create one. This is all of it.</p>
 
   <h3>For every install</h3>
   <table>
@@ -88,7 +160,9 @@
   <td>To delete keys that are no longer in use.</td><td>Same</td></tr>
   </table>
   <p>There is deliberately no column for a user identifier, an IP address, a
-  device name, or anything you have read. The table cannot answer the question
+  device name, or anything you have read. If you create the optional account, it
+  points at this row from its own table, as described above, and this row stays
+  as it is. The table cannot answer the question
   &ldquo;what has this person been reading&rdquo; because it does not record it.</p>
 
   <h3>Only if you turn on notifications</h3>
@@ -151,8 +225,10 @@
   six things from it: the app it was issued for, which subscription was bought,
   when it expires, whether it was refunded, whether it came from Apple's test
   environment, and the reference number described next. <strong>The receipt
-  itself is then discarded.</strong> It is not written to the database, and no
-  transaction identifier, purchase history, price or Apple ID is stored. The one
+  itself is then discarded.</strong> It is not written to this server's database,
+  and no transaction identifier, purchase history, price or Apple ID is stored
+  there. (The separate purchase record kept by RevenueCat is described under
+  <a href="#purchase-records">Purchase records</a> below.) The one
   exception, from version 2.0, is the keyed fingerprint described under
   <a href="#give-a-free-week">Give a free week</a>, and only if you use it.</p>
   <h3>The subscription reference number</h3>
@@ -187,6 +263,43 @@
   Apple, which handles that redemption as it handles any purchase. Redeeming any
   offer code in the app (Settings, Redeem code) opens Apple's own redemption
   screen; nothing about it passes through this server.</p>
+  <h3 id="purchase-records">Purchase records: RevenueCat (version 2.0 and later)</h3>
+  <p>From version 2.0, the app uses <strong>RevenueCat</strong>, a subscription
+  service, to keep a record of Nous+ purchases, so that we can see how many people
+  start a trial, subscribe, renew or cancel. RevenueCat does not take payments,
+  does not decide what you can read, and never sees your name, email address,
+  Apple ID or payment details: Apple handles the payment, and this server still
+  decides what is unlocked, exactly as described above.</p>
+  <p>Each time the app opens, whether or not you subscribe, the RevenueCat code
+  inside the app contacts RevenueCat with the details listed at the end of this
+  paragraph, and RevenueCat answers with what it holds for your copy of the app
+  (nothing, if you never bought). When you buy, restore or redeem Nous+, or when a
+  purchase made elsewhere reaches the app (a renewal, a redeemed offer code), it
+  also sends RevenueCat the signed purchase record Apple gave it. That record holds
+  which plan was bought, the price and currency, the purchase and renewal dates,
+  Apple's transaction numbers for it, whether it is a trial or an offer, and the
+  App Store country. Every one of these contacts carries a random identifier that RevenueCat creates for
+  your copy of the app, the identifier Apple gives this app for your device (the
+  &ldquo;identifier for vendor&rdquo;, which is the same for every app from the
+  same developer and changes when they are all deleted), the app version, the iOS
+  version, the device model and your language settings. Your IP address reaches
+  RevenueCat because that is how the request is delivered. Apple also tells
+  RevenueCat directly when a subscription renews, lapses or is refunded.</p>
+  <p>The app never gives RevenueCat a name, an email address or the optional
+  account, never attaches anything else to the record, and never collects an
+  advertising identifier. RevenueCat is our processor: it keeps the record for us,
+  in the United States, under its data processing terms and with the safeguards the GDPR requires for transfers
+  outside the EU. It is used only for subscription statistics and to send us a
+  short notice of a new subscription, never for advertising or tracking, never to
+  build a profile, and never combined with data from other apps. It is kept for as long
+  as Nous uses RevenueCat, unless you ask for it to be deleted (see
+  <a href="#deleting">Deleting your data</a>). It is separate from this server:
+  Delete all my data in the app does not reach it.</p>
+  <p><strong>You can switch it off.</strong> Settings, Data and offline, Send crash
+  reports covers this too. While it is off, the app sends no purchase record to
+  RevenueCat, and from the next time the app is opened it does not contact
+  RevenueCat at all. Switching it off does not change your subscription or what you
+  can read.</p>
   <p>You can view or cancel the subscription at any time at
   <a href="https://apps.apple.com/account/subscriptions">https://apps.apple.com/account/subscriptions</a>. See the
   <a href="../terms/">subscription terms</a> for the rest.</p>
@@ -227,8 +340,9 @@
   <h2 id="crash-reports">Crash reports</h2>
   <p>If the app crashes, it sends a crash report the next time it is opened, so
   that the fault can be found and fixed. Reports go to <strong>Sentry</strong>, a
-  crash reporting service, and are stored in the EU, in Frankfurt. This is the one
-  thing the app sends anywhere other than the server described above.</p>
+  crash reporting service, and are stored in the EU, in Frankfurt. Apart from the
+  <a href="#purchase-records">purchase records</a> described above, this is the
+  one thing the app sends anywhere other than the server described above.</p>
   <p>A report is technical. It contains where in the app's code the failure
   happened, the app's version and build number, the iOS version, and facts about
   the device such as its model, processor type, memory, screen size, language and
@@ -289,20 +403,26 @@
   </ul>
 
   <h2>What is never collected</h2>
-  <p>No name, email address, phone number, postal address, contacts, photos,
-  calendar, microphone, camera, health or fitness data, or precise or approximate
-  location. No advertising identifier. No fingerprinting. The app contains no
-  analytics SDK, no advertising network and no third-party tracker of any kind,
-  and no data leaves the app except the requests to this server, the crash
-  reports described above and, from version 1.2, the download of the voice
-  described under <a href="#listening">Listening</a>.</p>
+  <p>No name, phone number, postal address, contacts, photos, calendar,
+  microphone, camera, health or fitness data, or precise or approximate location.
+  No email address, unless you create the optional account. No advertising
+  identifier. No fingerprinting. The app contains no
+  advertising network and no third-party tracker of any kind, and nothing in it
+  records what you read or tap. No data leaves the app except the requests to
+  this server, the crash reports described above, from version 1.2 the download
+  of the voice described under <a href="#listening">Listening</a>, and from
+  version 2.0 the contact with RevenueCat described under
+  <a href="#purchase-records">purchase records</a>, each time the app opens, unless
+  you switch it off, and Sign in with Apple, only if you create the
+  <a href="#account">optional account</a>.</p>
   <p>Nothing is sold. Nothing is shared with data brokers. Nothing is used to
   build a profile or to target advertising, here or anywhere else.</p>
 
   <h2>Who else processes anything</h2>
   <table>
   <tr><th>Who</th><th>What they handle</th></tr>
-  <tr><td>Apple</td><td>App Attest, the App Store purchase, offer code
+  <tr><td>Apple</td><td>App Attest, Sign in with Apple and Hide My Email (only
+  if you create the optional account), the App Store purchase, offer code
   redemption, delivery of notifications, Siri and Shortcuts and, from version 1.2,
   delivery of the voice for Listen. Apple sees
   what Apple always sees as the platform operator; this app sends it nothing extra.
@@ -320,11 +440,19 @@
   <tr><td>Sentry</td><td>Receives and stores crash reports and performance
   measurements, in the EU (Frankfurt).
   See <a href="#crash-reports">crash reports</a> above.</td></tr>
+  <tr><td>RevenueCat</td><td>From version 2.0, is contacted each time the app
+  opens and receives and stores the record of each Nous+ purchase, renewal and cancellation, under an anonymous identifier, in
+  the United States, and keeps subscription statistics from it. See
+  <a href="#purchase-records">purchase records</a> above.</td></tr>
   </table>
-  <p>Those five are the whole list for the app and its server, and none of them is
-  an analytics or advertising vendor of any kind. Each is bound by its own
+  <p>Those six are the whole list for the app and its server. None of them is an
+  advertising vendor of any kind, and RevenueCat is the only one that keeps
+  statistics, about purchases and nothing else. Each is bound by its own
   agreement to protect what it handles to the same standard set out in this
   policy, and none of them is permitted to use it for their own purposes.</p>
+  <p>No email service is used yet, because no email has been sent. The service
+  that will send the Monthly AI News Brief and announcements will be named here,
+  with where it stores addresses, before the first email is sent.</p>
 
   <h3 id="the-website">The website you are reading this on</h3>
   <p>This policy, the subscription terms and the support page are published as
@@ -391,12 +519,17 @@
   that figure never leaves your device. You can remove the voice at any time in the
   app's settings.</p>
 
-  <h2>Deleting your data</h2>
-  <p>There is no account to delete, but there are rows, and all of them can go,
-  from inside the app, without asking anyone:</p>
+  <h2 id="deleting">Deleting your data</h2>
+  <p>You need no account, but there are rows, and all of them can go, from inside
+  the app, without asking anyone:</p>
   <ul>
+  <li><strong>Delete account</strong>, under Account in the app's settings,
+  deletes the optional account and everything kept with it, immediately, and tells
+  Apple to disconnect Nous from your Apple ID. Switching an email off stops that
+  email at once and keeps the account.</li>
   <li><strong>Delete all my data</strong>, in the app's settings, deletes
-  everything the server holds about your copy of the app in one action: the key
+  everything the server holds about your copy of the app in one action, and the
+  optional account first, if this copy of the app is signed in to one: the key
   identifier, its public key and
   counter, any notification record, any breaking-alert record and the list of
   what you follow that came with it, the subscription reference number, and any
@@ -418,13 +551,22 @@
   <li><strong>Give a free week</strong> records are not tied to your copy of the
   app, so they cannot be found from it; they are deleted automatically 400 days
   after each code was handed out.</li>
-  <li><strong>Deleting the app</strong> without using either control leaves only
-  the key identifier, which is deleted automatically 180 days later.</li>
+  <li><strong>Deleting the app</strong> without using any of these controls leaves
+  the key identifier, which is deleted automatically 180 days later, and the
+  optional account, if you created one, which stays until you delete it (you can
+  do that from a new copy of the app by signing in again).</li>
+  <li><strong>Purchase records at RevenueCat</strong> (version 2.0 and later) are
+  not held by this server, so Delete all my data does not reach them. Write to
+  <a href="mailto:hi@alp.me">hi@alp.me</a> with the order number from Apple's
+  purchase receipt email, and the record will be found by that number and
+  deleted.</li>
   </ul>
   <p>If you would rather ask a person, write to <a href="mailto:hi@alp.me">hi@alp.me</a>. Because nothing held here
   identifies you, a mailed request has to name the identifier the app shows in its
   settings. There is no other way to tell which row is yours, which is a
-  consequence of collecting nothing rather than an obstacle put in the way.</p>
+  consequence of collecting nothing rather than an obstacle put in the way. If you
+  created the optional account, a request about it can simply name its email
+  address.</p>
 
   <h2>Your rights</h2>
   <p>If you are in the EU, the UK, or a US state with a privacy statute, you have
@@ -434,21 +576,58 @@
   you hold about me&rdquo; is the rows described above and nothing else. Crash
   reports are not part of that answer because they cannot be tied to a person or
   to a copy of the app.</p>
-  <p>The legal basis for holding them, under the GDPR, is legitimate interest:
+  <p>For the optional account you can also see everything it keeps, in the app,
+  under Account. The legal basis for the account itself is that you asked for it
+  (performing what you asked for, GDPR Article 6(1)(b)); the legal basis for each
+  email is your consent (Article 6(1)(a)), which you can withdraw at any time with
+  its switch, without affecting what happened before.</p>
+  <p>The legal basis for holding the rest, under the GDPR, is legitimate interest:
   running the service, preventing abuse, and delivering a notification you asked
   for. Crash reports and performance measurements rest on the same basis: finding
-  and fixing faults in the app, and you can switch them off in the app.
+  and fixing faults in the app, and you can switch them off in the app. The
+  contact with RevenueCat and the purchase records it keeps rest on it too, and the
+  same switch turns them off: knowing how the
+  subscription that pays for the service is doing. They hold no name, email
+  address or Apple ID, and you can ask for them to be deleted, as described
+  above.
   There is no automated decision-making about you.</p>
   <p>The things switched on by an explicit choice are the daily notification and,
-  from version 2.0, breaking alerts. Withdrawing either choice is its toggle in the
-  app: switching it off both stops it and deletes its record, in one action.
+  from version 2.0, breaking alerts and the two email switches of the optional
+  account. Withdrawing any of them is its switch in the app: switching a
+  notification off stops it and deletes its record, and switching an email off
+  stops it at once, in one action.
   Nothing else requires or relies on your consent, so there is nothing else to
   withdraw, and the rest can still be deleted, as described above.</p>
+
+  <h3 id="turkey">If you are in Turkey (KVKK)</h3>
+  <p>This section is the information notice under Article 10 of the Personal Data
+  Protection Law No. 6698. The data controller is Alp Özcan,
+  <a href="mailto:hi@alp.me">hi@alp.me</a>. The data processed, the purposes and
+  how long each is kept are set out above. The optional account is processed
+  because it is necessary for the service you asked for (Article 5(2)(c)), and each
+  email only with your explicit consent (Article 5(1)), given separately for each
+  email by switching it on and withdrawable at any time with the same switch.
+  The server is run by Fly.io in the Netherlands and its backups are held by
+  Cloudflare in the EU, so the data is transferred abroad; this is done under
+  Article 9, with the safeguards that article requires. Before any commercial
+  electronic message is sent to a Turkish address, consent will be registered with
+  the Message Management System (IYS) where Law No. 6563 requires it. You have the
+  rights in Article 11, including to learn whether data about you is processed, to
+  ask for it to be corrected or deleted, and to object; apply by writing to
+  <a href="mailto:hi@alp.me">hi@alp.me</a>, or delete the account in the app.</p>
+
+  <h3 id="email-rules">Email rules (United States and Canada)</h3>
+  <p>No email has been sent yet. When the Monthly AI News Brief or an announcement
+  is sent, every message will say it is from Nous, carry an accurate subject line,
+  include a valid postal address and a one-click unsubscribe link that works for at
+  least 60 days, and an unsubscribe will take effect at once, well inside the 10
+  business days that CAN-SPAM and CASL allow. Nothing is emailed to you unless you
+  switched that email on.</p>
 
   <h2>Children</h2>
   <p>Nous is a news reader for a professional audience. It is not directed at
   children, collects nothing that would identify a child, and has no social
-  features.</p>
+  features. The optional account and its email are not for children under 16.</p>
 
   <h2>Changes</h2>
   <p>If this policy changes, the date at the top changes with it, and this page is
